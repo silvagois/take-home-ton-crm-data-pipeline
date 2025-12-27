@@ -10,11 +10,6 @@ O objetivo principal é **extrair, validar e carregar** os logs de interação d
 
 ## 🧠 Visão Geral da Arquitetura
 
-![Medallion Architecture](diagrams/architecture.png)
-
-<img src="diagrams/architecture.png" alt="Medallion Architecture" width="800"/>
-
-
 ```
 Salesforce Marketing Cloud (API)
             │
