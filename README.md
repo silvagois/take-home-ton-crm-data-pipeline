@@ -1,4 +1,4 @@
-# 📊 CRM Attribution Pipeline
+# 📊 CRM Analytics Data Pipeline
 
 ## 🎯 Objetivo do Projeto
 
