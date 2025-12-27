@@ -20,6 +20,9 @@ As tabelas não foram criadas particionadas, mas dentro do contexto de Bigquery 
 
 A solução segue uma arquitetura em camadas, separando responsabilidades técnicas, regras de negócio e consumo analítico.
 
+<img width="1702" height="818" alt="architecture" src="https://github.com/user-attachments/assets/bf674813-e403-4872-8d07-dfa49572d836" />
+
+
 ```
 ┌────────────────────────────┐
 │ Fontes de Dados            │
