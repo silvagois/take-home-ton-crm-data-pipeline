@@ -8,6 +8,14 @@ O objetivo é resolver o *"buraco negro" do funil*, saneando dados crus, unifica
 
 ---
 
+## 📌 Observação importante 📌
+
+Todo o codigo SQL foi usando baseado na estrutura do DuckDb, o objetivo desse projeto é pensado na arquitetura da GCP e Bigquery, porém os codigo utilizados a sintaxe e a arquitetura podem facilmente ser implementadas na GCP e no Bigquery com poucas alterações no sql, mas a intenção é mostrar uma solução de projeto nos conceitos fundamentais de Engenharia de Dados e Analytics Engineering e na estrutura que consiga ser transferida para outros serviços/clouds.
+
+Criação das Tabelas:
+As tabelas não foram criadas particionadas, mas dentro do contexto de Bigquery elas seriam criadas particionadas por alguma coluna de data ou de negocio, e ate mesmo criada clusterização para melhor otimização na leitura e custos de querys.
+
+
 ## 🧠 Visão Geral da Arquitetura
 
 A solução segue uma arquitetura em camadas, separando responsabilidades técnicas, regras de negócio e consumo analítico.
@@ -61,7 +69,7 @@ diagrams/architecture.png
 ## 📁 Estrutura do Repositório
 
 ```
-crm-attribution-pipeline/
+src/
 │
 ├── README.md
 │
@@ -77,15 +85,25 @@ crm-attribution-pipeline/
 │   └── gold/
 │       └── fct_attribution.sql
 │
-├── python/
-│   ├── ingestion/
-│   │   └── ingest_sfmc_email.py
-│   │
-│   ├── validation/
-│   │   └── json_validator.py
-│   │
-│   └── utils/
-│       └── logger.py
+├──airflow/
+|   │
+|   ├── dags/
+|   │   └── sfmc_email_ingestion_dag.py
+|   │
+|   ├── ingestion/
+|   │   ├── extract/
+|   │   │   └── sfmc_extractor.py
+|   │   │
+|   │   ├── validation/
+|   │   │   └── json_quality_gate.py
+|   │   │
+|   │   ├── load/
+|   │   │   └── gcs_loader.py
+|   │   │
+|   │   └── utils/
+|   │       └── logger.py
+|   │
+|   └── README.md
 │
 └── diagrams/
     └── architecture.png
@@ -244,19 +262,6 @@ Estratégia segura para correção de regras de negócio.
 
 ---
 
-## 🏆 Por que esta solução é Sênior
-
-Este projeto demonstra:
-
-* Arquitetura em camadas clara
-* Governança de dados
-* Separação de responsabilidades
-* Regras de negócio explícitas
-* Escalabilidade para novos canais
-* Facilidade de auditoria e backfill
-
----
-
 ## 🚀 Evoluções Naturais
 
 * Migração para dbt
@@ -266,4 +271,4 @@ Este projeto demonstra:
 
 ---
 
-**Autor:** Analytics / Data Engineering Team
+**Autor:** Marcos Gois - Analytics / Data Engineering Team
