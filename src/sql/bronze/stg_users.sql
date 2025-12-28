@@ -1,3 +1,9 @@
+'''
+- As tabelas não estão particionadas, mas num cenário produtivo dentro do Bigquery podemos fazer a criação destas
+particionando-as por alguma coluna dependeno da regra de cada tabela, ou por data ou por alguma outra coluna de negocio, 
+além de usar clusterização caso necessário
+'''
+
 CREATE OR REPLACE
 TABLE bronze.stg_users AS
 SELECT

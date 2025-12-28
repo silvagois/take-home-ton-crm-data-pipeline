@@ -1,3 +1,8 @@
+'''
+- Através desta tabela fato, podemos responder a pergunta, Qual campanha gerou esta conversão, que é o entregável desta solução
+
+'''
+
 CREATE OR REPLACE
 TABLE gold.fct_attribution AS
 WITH eligible AS (

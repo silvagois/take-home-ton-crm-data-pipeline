@@ -160,7 +160,7 @@ Responsável por **modelagem de negócio intermediária**.
 
 **Arquivo:**
 
-* `int_user_interactions.sql`
+* `user_interactions.sql`
 
 ---
 
@@ -233,7 +233,7 @@ Campos principais:
 
 ## 🐍 Pipeline Python (Ingestão)
 
-A ingestão de Email SFMC é feita via Python, antes do SQL.
+A ingestão de Email SFMC é feita via Python + Airflow, antes do SQL.
 
 ### Etapas:
 
@@ -260,6 +260,7 @@ A qualidade é aplicada **desde a origem até a camada Gold**.
 * Queries idempotentes
 * `CREATE OR REPLACE` por camada
 * Reprocessamento por período (ex: últimos 7 ou 30 dias)
+* Camadas bem definidas Raw, Bronze, Silver e Gold
 
 Estratégia segura para correção de regras de negócio.
 
